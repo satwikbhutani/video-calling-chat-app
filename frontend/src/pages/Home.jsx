@@ -79,7 +79,7 @@ const Home = () => {
   );
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-base-100 to-base-300 relative overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-base-100 to-base-300 relative overflow-hidden mb-16">
       <FloatingElements />
       
       {/* Animated mesh gradient background */}

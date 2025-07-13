@@ -14,7 +14,6 @@ import { axiosInstance } from './lib/axios.js'
 import Layout from './components/Layout.jsx'
 import Messages from './pages/Messages.jsx'
 import Friends from './pages/Friends.jsx'
-import Settings from './pages/Settings.jsx'
 
 
 const App = () => {
@@ -48,7 +47,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={isAuthenticated && isOnboarded ? 
         (
-          <Layout showSidebar={true}>
+          <Layout>
             <Home />
           </Layout>
         ) : 
@@ -58,35 +57,28 @@ const App = () => {
         <Route path="/Onboarding" element={isAuthenticated? <Onboarding /> : <Navigate to="/Login"/>} />
         <Route path="/Notifications" element={isAuthenticated && isOnboarded ? 
         (
-          <Layout showSidebar={true}>
+          <Layout>
             <Notifications />
           </Layout>
         ) : 
         (<Navigate to={isAuthenticated? "/Onboarding" : "/Login"}/>)} />
         <Route path="/Messages" element={isAuthenticated && isOnboarded ? 
         (
-          <Layout showSidebar={true}>
+          <Layout>
             <Messages />
           </Layout>
         ) : 
         (<Navigate to={isAuthenticated? "/Onboarding" : "/Login"}/>)} />
         <Route path="/Friends" element={isAuthenticated && isOnboarded ? 
         (
-          <Layout showSidebar={true}>
+          <Layout>
             <Friends />
-          </Layout>
-        ) : 
-        (<Navigate to={isAuthenticated? "/Onboarding" : "/Login"}/>)} />
-        <Route path="/Settings" element={isAuthenticated && isOnboarded ? 
-        (
-          <Layout showSidebar={true}>
-            <Settings />
           </Layout>
         ) : 
         (<Navigate to={isAuthenticated? "/Onboarding" : "/Login"}/>)} />
         <Route path="/Chat/:id" element={isAuthenticated && isOnboarded ? 
         (
-          <Layout showSidebar={false}>
+          <Layout>
             <ChatPage />
           </Layout>
         ) : 

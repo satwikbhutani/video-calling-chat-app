@@ -10,7 +10,7 @@ import toast, { Toaster } from "react-hot-toast";
 import { useState } from "react";
 import ThemeSelector from "./ThemeSelector.jsx";
 
-const Navbar = ({showLogo = false}) => {
+const Navbar = ({showLogo = false, toggleSidebar}) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const navigate = useNavigate();
   const { data } = useQuery({
@@ -67,21 +67,50 @@ const Navbar = ({showLogo = false}) => {
         <Toaster position="top-center" reverseOrder={false} />
         
         {/* Main navbar content */}
-        <div className="px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
-          {/* Logo section with enhanced styling */}
-          {showLogo && (
-            <Link to="/" className="flex-shrink-0 group">
-              <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-lg blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+        <div className="px-4 flex items-center justify-between h-16">
+          
+          {/* Left side - Hamburger Menu and Logo */}
+          <div className="flex items-center gap-2">
+            {/* Hamburger Menu Button - Always Visible */}
+            {!isChatPage && toggleSidebar && (
+              <button
+                className="hidden lg:inline-flex btn btn-ghost btn-circle relative group"
+                onClick={toggleSidebar}
+                aria-label="Toggle sidebar"
+              >
+                <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-secondary/10 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-sm" />
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-6 w-6 relative z-10 text-base-content/70 group-hover:text-primary transition-colors duration-300"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
+                </svg>
+              </button>
+            )}
+
+            {/* Logo section with enhanced styling */}
+            {(showLogo || window.innerWidth < 1024) && (
+              <Link to="/" className="flex-shrink-0 group">
                 <div className="relative">
-                  <Logo />
+                  <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-lg blur-sm opacity-0 " />
+                  <div className="relative">
+                    <Logo />
+                  </div>
                 </div>
-              </div>
-            </Link>
-          )}
+              </Link>
+            )}
+          </div>
 
           {/* Right side navigation */}
-          <div className="flex items-center gap-2 sm:gap-4 ml-auto">
+          <div className="flex items-center gap-2 sm:gap-4">
             {/* Theme selector with enhanced styling */}
             <div className="relative group">
               <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-secondary/10 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-sm" />
@@ -126,17 +155,6 @@ const Navbar = ({showLogo = false}) => {
                         <CgProfile className="h-4 w-4 text-primary" />
                       </div>
                       <span className="group-hover:text-primary transition-colors duration-300">Profile</span>
-                    </div>
-                  </Link>
-                </li>
-                
-                <li>
-                  <Link to="/settings" className="group hover:bg-gradient-to-r hover:from-primary/10 hover:to-secondary/10 transition-all duration-300 rounded-lg">
-                    <div className="flex items-center gap-3">
-                      <div className="p-1 rounded-md bg-gradient-to-r from-primary/20 to-secondary/20 group-hover:from-primary/30 group-hover:to-secondary/30 transition-all duration-300">
-                        <Settings className="h-4 w-4 text-primary" />
-                      </div>
-                      <span className="group-hover:text-primary transition-colors duration-300">Settings</span>
                     </div>
                   </Link>
                 </li>

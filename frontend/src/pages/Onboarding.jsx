@@ -199,14 +199,14 @@ const Onboarding = () => {
               {/* LEFT PANEL - Profile Section (Fixed, Non-scrolling) */}
               <div className="w-full lg:w-2/5 p-6 sm:p-8 lg:p-12 flex flex-col justify-center items-center text-center bg-gradient-to-br from-primary/5 via-secondary/3 to-accent/5 relative animate-slide-in-left lg:h-full">
                 {/* Logo Section */}
-                <div className="mb-6 lg:mb-8">
+                <div className="hidden lg:inline-block lg:mb-8">
                   <Logo />
                 </div>
 
                 {/* Profile Picture Section */}
                 <div className="flex flex-col items-center mb-6 lg:mb-8">
                   <div className="relative group">
-                    <div className="w-28 h-28 sm:w-36 sm:h-36 lg:w-44 lg:h-44 rounded-full overflow-hidden shadow-xl border-4 border-primary/30 group-hover:border-primary/60 transition-all duration-300 animate-pulse-gentle">
+                    <div className="w-20 h-20 sm:w-28 sm:h-28 lg:w-40 lg:h-40 rounded-full overflow-hidden shadow-xl border-4 border-primary/30 group-hover:border-primary/60 transition-all duration-300 animate-pulse-gentle">
                       <img
                         src={formData.profilePic}
                         alt="Profile"
@@ -238,7 +238,7 @@ const Onboarding = () => {
                 </div>
 
                 {/* Welcome Text */}
-                <div className=" text-center md:flex-col">
+                <div className=" hidden lg:flex lg:flex-col text-center">
                   <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-primary mb-3 lg:mb-4">
                     {isOnboarded ? 'Update Your Profile' : 'Welcome to Unmute!'}
                   </h2>

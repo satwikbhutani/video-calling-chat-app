@@ -106,8 +106,8 @@ const ChatPage = () => {
   if (loading || !chatClient || !channel) return <ChatLoader />;
 
   return (
-  <div className="min-h-screen sm:min-h-full bg-base-200 flex items-center justify-center px-4 py-6">
-    <div className="w-full max-w-5xl h-[80vh] bg-base-100 rounded-xl shadow-xl border border-base-300 overflow-hidden flex flex-col">
+  <div className="min-h-screen sm-min-h-screen bg-base-200 flex items-center justify-center px-4" >
+    <div className="w-full max-w-5xl h-[70vh] sm:h-[80vh] bg-base-100 rounded-xl shadow-xl border border-base-300 overflow-hidden flex flex-col mt-0">
       <Chat client={chatClient} theme="messaging light">
         <Channel channel={channel}>
           <div className="w-full h-full relative flex flex-col">
