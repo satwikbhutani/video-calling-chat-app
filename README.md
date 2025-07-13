@@ -1,4 +1,4 @@
-# 🎙️ UNMUTE - Real-Time Chat & Video Calling Platform
+# UNMUTE - Real-Time Chat & Video Calling Platform
 
 > A social communication web app that helps individuals overcome loneliness by connecting them with like-minded strangers based on shared interests, languages, and location.
 
