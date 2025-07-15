@@ -5,8 +5,10 @@ import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { axiosInstance } from '../lib/axios'
 import toast, { Toaster } from 'react-hot-toast'
 import { Mail, Lock, Heart, Star } from 'lucide-react'
+import useScrollToTop from '../lib/useScrollToTop'
 
 const Login = () => {
+  useScrollToTop();
   const [loginData, setLoginData] = useState({
     email: '',
     password: ''

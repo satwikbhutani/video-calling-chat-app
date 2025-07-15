@@ -180,7 +180,7 @@ const Onboarding = () => {
       `}</style>
 
       <div className="min-h-screen bg-gradient-to-br from-base-100 via-base-200/50 to-base-300/30 relative overflow-hidden">
-        <Toaster position="top-center" reverseOrder={false} />
+        
 
         {/* Background Effects */}
         <div className="absolute inset-0 bg-gradient-to-r from-primary/3 via-secondary/3 to-accent/3" />

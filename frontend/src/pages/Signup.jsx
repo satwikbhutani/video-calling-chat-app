@@ -94,7 +94,7 @@ const Signup = () => {
         }
       `}</style>
 
-      <div className="min-h-screen bg-gradient-to-br from-base-100 via-base-200/50 to-base-300/30 relative overflow-hidden">
+      <div className="min-h-screen bg-gradient-to-br from-base-100 via-base-200/50 to-base-300/30 relative overflow-hidden" data-theme="forest">
         <Toaster position="top-center" reverseOrder={false} />
 
         {/* Background Effects */}
@@ -223,14 +223,13 @@ const Signup = () => {
 
                       {/* Terms and Conditions */}
                       <div className="form-control">
-                        <label className="label cursor-pointer justify-start gap-3 p-4 bg-base-200/30 rounded-xl border border-base-300/30 hover:bg-base-200/50 transition-colors duration-300">
+                        <label className="label cursor-pointer justify-start gap-3 p-4 rounded-xl  hover:bg-base-200/50 transition-colors duration-300">
                           <input 
                             type="checkbox" 
                             className="checkbox checkbox-primary checkbox-sm" 
                             required 
                           />
-                          <span className="label-text text-sm flex items-center gap-2">
-                            <Shield className="w-4 h-4 text-primary" />
+                          <span className="label-text text-sm items-center gap-2">
                             I agree to the{' '}
                             <span className="text-primary hover:underline font-medium cursor-pointer">terms of service</span> and{' '}
                             <span className="text-primary hover:underline font-medium cursor-pointer">privacy policy</span>

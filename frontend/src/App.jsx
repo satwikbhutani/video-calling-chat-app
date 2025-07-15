@@ -14,9 +14,11 @@ import { axiosInstance } from './lib/axios.js'
 import Layout from './components/Layout.jsx'
 import Messages from './pages/Messages.jsx'
 import Friends from './pages/Friends.jsx'
+import { useThemeStore } from './store/useThemeStore.js'
 
 
 const App = () => {
+  const {theme}=useThemeStore();
   const {data,isLoading,error} = useQuery({
     queryKey: ["authUser"],
     queryFn: async () => {
@@ -37,13 +39,13 @@ const App = () => {
 
   if(isLoading) {
     return (
-      <div className='flex items-center justify-center h-screen' data-theme='forest'>
+      <div className='flex items-center justify-center h-screen' data-theme={theme}>
         <div className="loading loading-spinner loading-lg"></div>
       </div>
     );
   }
   return (
-    <div className='' data-theme='forest'>
+    <div className='' data-theme={theme}>
       <Routes>
         <Route path="/" element={isAuthenticated && isOnboarded ? 
         (

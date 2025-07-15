@@ -22,6 +22,9 @@ const STREAM_API_KEY = import.meta.env.VITE_STREAM_API_KEY;
 
 
 const ChatPage = () => {
+  useEffect(() => {
+    window.scrollTo(0, document.body.scrollHeight);
+  }, []);
   const { id: targetUserId } = useParams();
 
   const [chatClient, setChatClient] = useState(null);
@@ -106,9 +109,9 @@ const ChatPage = () => {
   if (loading || !chatClient || !channel) return <ChatLoader />;
 
   return (
-  <div className="min-h-screen sm-min-h-screen bg-base-200 flex items-center justify-center px-4" >
-    <div className="w-full max-w-5xl h-[70vh] sm:h-[80vh] bg-base-100 rounded-xl shadow-xl border border-base-300 overflow-hidden flex flex-col mt-0">
-      <Chat client={chatClient} theme="messaging light">
+  <div className="min-h-screen bg-base-200 flex items-center justify-center px-4" >
+    <div className="w-full max-w-5xl my-auto h-[80vh] bg-base-100 rounded-xl shadow-xl border border-base-300 overflow-hidden flex flex-col">
+      <Chat client={chatClient} theme="messaging dark">
         <Channel channel={channel}>
           <div className="w-full h-full relative flex flex-col">
             <div className="bg-base-100 z-10">

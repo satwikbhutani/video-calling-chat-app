@@ -6,8 +6,10 @@ import { UsersIcon, Zap, Star, Heart, Dot } from 'lucide-react';
 import FriendCard from '../components/FriendCard';
 import NoFriendsFound from '../components/NoFriendsFound';
 import RecommendedUserCard from '../components/RecommendedUserCard';
+import useScrollToTop from '../lib/useScrollToTop';
 
 const Home = () => {
+  useScrollToTop()
   const queryClient = useQueryClient();
   const [outgoingReq, setOutgoingReq] = useState(new Set());
   const [visibleCards, setVisibleCards] = useState(new Set());
@@ -79,7 +81,7 @@ const Home = () => {
   );
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-base-100 to-base-300 relative overflow-hidden mb-16">
+    <div className="min-h-screen bg-gradient-to-br from-base-100 to-base-300 relative overflow-hidden pb-16">
       <FloatingElements />
       
       {/* Animated mesh gradient background */}

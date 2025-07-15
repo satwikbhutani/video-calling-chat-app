@@ -7,10 +7,12 @@ import { Search, Plus, UserPlus, Star, Users } from 'lucide-react'
 import toast from 'react-hot-toast'
 import FriendCard from '../components/FriendCard'
 import RecommendedUserCard from '../components/RecommendedUserCard'
+import useScrollToTop from '../lib/useScrollToTop';
 
 const STREAM_API_KEY = import.meta.env.VITE_STREAM_API_KEY;
 
 const Friends = () => {
+  useScrollToTop()
   const [searchTerm, setSearchTerm] = useState('')
   const [activeTab, setActiveTab] = useState('all') // 'all', 'online', 'recommended'
   const [chatClient, setChatClient] = useState(null);
@@ -223,7 +225,7 @@ const Friends = () => {
         .animate-pulse-gentle { animation: pulse-gentle 2s ease-in-out infinite; }
       `}</style>
 
-      <div className="min-h-screen bg-gradient-to-br from-base-100 via-base-200/50 to-base-300/30 relative overflow-hidden mb-16">
+      <div className="min-h-screen bg-gradient-to-br from-base-100 via-base-200/50 to-base-300/30 relative overflow-hidden pb-16">
         {/* Background Effects */}
         <div className="absolute inset-0 bg-gradient-to-r from-primary/3 via-secondary/3 to-accent/3" />
         <div className="absolute top-20 left-10 w-32 h-32 bg-primary/8 rounded-full blur-2xl animate-float-gentle" />

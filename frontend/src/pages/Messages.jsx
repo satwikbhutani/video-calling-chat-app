@@ -5,10 +5,12 @@ import { axiosInstance } from "../lib/axios";
 import { StreamChat } from "stream-chat";
 import { Search, Plus, MoreVertical, Phone, Video, Send, MessageCircle } from 'lucide-react';
 import toast from "react-hot-toast";
+import useScrollToTop from "../lib/useScrollToTop";
 
 const STREAM_API_KEY = import.meta.env.VITE_STREAM_API_KEY;
 
 const Messages = () => {
+  useScrollToTop()
   const navigate = useNavigate();
   const [chatClient, setChatClient] = useState(null);
   const [channels, setChannels] = useState([]);
