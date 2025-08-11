@@ -33,7 +33,7 @@ const Notifications = () => {
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["friendRequests"] });
       queryClient.invalidateQueries({ queryKey: ["friends"] });
-      navigate(0);
+      window.location.reload(true);
     }
   })
 
@@ -45,7 +45,7 @@ const Notifications = () => {
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["friendRequests"] });
       queryClient.invalidateQueries({ queryKey: ["outgoingFriendRequests"] });
-      navigate(0);
+      window.location.reload(true);
     }
   })
 

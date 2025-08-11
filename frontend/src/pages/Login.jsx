@@ -6,6 +6,8 @@ import { axiosInstance } from '../lib/axios'
 import toast, { Toaster } from 'react-hot-toast'
 import { Mail, Lock, Heart, Star } from 'lucide-react'
 import useScrollToTop from '../lib/useScrollToTop'
+import img1  from '../resources/videocall2.svg'
+import img2  from '../resources/chat.svg'
 
 const Login = () => {
   useScrollToTop();
@@ -158,7 +160,7 @@ const Login = () => {
             <div className="absolute top-0 right-0 hidden sm:block animate-fadeInUp">
               <div className="relative">
                 <div className="absolute inset-0 bg-primary/10 rounded-full blur-2xl animate-pulse-gentle" />
-                <img src="./resources/chat.svg" alt="Video Call" className="relative mx-auto w-40 md:w-60 opacity-90 hover:scale-105 transition-transform duration-300" />
+                <img src={img2} alt="Video Call" className="relative mx-auto w-40 md:w-60 opacity-90 hover:scale-105 transition-transform duration-300" />
               </div>
             </div>
           </section>
@@ -257,7 +259,7 @@ const Login = () => {
               {/* Main image */}
               <div className="relative mb-8">
                 <div className="absolute inset-0 bg-primary/10 rounded-2xl blur-2xl animate-pulse-gentle" />
-                <img src="./resources/videocall2.svg" alt="connect" className="relative w-full max-w-md opacity-90" />
+                <img src={img1} alt="connect" className="relative w-full max-w-md opacity-90" />
               </div>
               
               {/* Quote */}

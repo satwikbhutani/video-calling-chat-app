@@ -6,6 +6,7 @@ import { useQueryClient } from '@tanstack/react-query'
 import { axiosInstance } from '../lib/axios'
 import toast, { Toaster } from 'react-hot-toast'
 import { User, Mail, Lock, Shield, Sparkles } from 'lucide-react'
+import img1 from '../resources/videocall.svg'
 
 const Signup = () => {
   const [signupData, setSignupData] = useState({
@@ -137,7 +138,7 @@ const Signup = () => {
                 <div className="hidden md:flex w-32 h-32 lg:w-40 lg:h-40 relative">
                   <div className="absolute inset-0 bg-primary/10 rounded-full blur-xl animate-pulse-gentle" />
                   <img 
-                    src="./resources/videocall.svg" 
+                    src={img1} 
                     alt="Video call illustration" 
                     className="relative w-full h-full opacity-90 hover:scale-105 transition-transform duration-300"
                   />

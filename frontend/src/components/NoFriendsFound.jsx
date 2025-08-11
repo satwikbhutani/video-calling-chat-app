@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 const NoFriendsFound = () => {
   return (
@@ -6,12 +6,14 @@ const NoFriendsFound = () => {
       <div className="text-4xl">🧑‍🤝‍🧑</div>
       <h3 className="text-lg font-semibold text-primary">No Friends Yet!</h3>
       <p className="text-sm text-base-content opacity-70 italic">
-        You haven’t connected with anyone yet. Discover people with similar interests, languages, and location to start meaningful conversations.
+        You haven’t connected with anyone yet. Check{' '}
+        <a href="/Notifications" className="text-primary underline">
+          Notifications
+        </a>{' '}
+        for new friend requests.
       </p>
     </div>
   );
 };
 
-
-
-export default NoFriendsFound
+export default NoFriendsFound;

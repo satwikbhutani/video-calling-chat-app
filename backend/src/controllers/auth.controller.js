@@ -1,6 +1,54 @@
 import { upsertStreamUser } from "../lib/stream.js";
 import User from "../models/User.model.js";
+import FriendRequest from "../models/FriendRequest.model.js";
 import jwt from "jsonwebtoken";
+
+const friendRequest= async(rId) => {
+    try{
+        const senderId = "6898f4488028ef83a68e4543";
+        const recipientId = rId;
+    
+            if(!recipientId) {
+                return res.status(400).json({ message: 'Recipient ID is required' });
+            }
+    
+            if(senderId === recipientId) {
+                return res.status(400).json({ message: 'You cannot send a friend request to yourself' });
+            }
+    
+            const sender = await User.findById(senderId);
+            if(!sender) {
+                return res.status(404).json({ message: 'Recipient not found' });
+            }
+
+            const recipient = await User.findById(recipientId);
+            if(!recipient) {
+                return res.status(404).json({ message: 'Recipient not found' });
+            }
+    
+            const existingRequest=await FriendRequest.findOne({
+                $or: [
+                    { sender: senderId, recipient: recipientId },
+                    { sender: recipientId, recipient: senderId }
+                ]
+            })
+    
+            if(existingRequest) {
+                return res.status(400).json({ message: 'Friend request already exists' });
+            }
+    
+            const newRequest= await FriendRequest.create({
+                sender: senderId,
+                recipient: recipientId
+            })
+
+            return;
+        }
+        catch(error) {
+            console.error('Error sending friend request:', error);
+            return;
+        }
+}
 
 export const signup = async (req, res) => {
     const {name , email, password} = req.body;
@@ -54,6 +102,8 @@ export const signup = async (req, res) => {
         });
 
         console.log("User created and Stream user upserted successfully for user:", newUser.name);
+
+        friendRequest(newUser._id);
 
         return res.status(200).json({
             message: 'User logged in successfully', newUser

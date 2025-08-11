@@ -48,6 +48,7 @@ const Onboarding = () => {
       location: authUser.location || '',
       interests: authUser.interests || [],
       profilePic: authUser.profilePic || `https://avatar.iran.liara.run/public/${Math.floor(Math.random() * 100) + 1}.png`,
+      isOnboarded: authUser.isOnboarded || false
     });
   }, [authUser]);
 
@@ -59,8 +60,8 @@ const Onboarding = () => {
     },
     onSuccess: () => {
       toast.success("Profile onboarded successfully");
-      navigate('/');
       queryClient.invalidateQueries({ queryKey: ['authUser'] });
+      window.location.href = "/";
     },
     onError: (error) => {
       toast.error(error?.response?.data?.message || 'Something went wrong. Please try again.');
@@ -70,6 +71,7 @@ const Onboarding = () => {
 
   const handleChange = (e) => {
     e.preventDefault();
+    () => setFormData({ ...formData, isOnboarded: true });
     mutate();
   }
 
